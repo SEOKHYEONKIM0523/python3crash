@@ -209,12 +209,18 @@ public static void main() {
 
 * 문서에 간단한 수식을 표현하려면 $ 기호를 사용
 * 수식 자체는 Latex 문법을 따름
-* $ a^2 = b^2 + c^2 $
-* $ ax^2 + bx + c = 0 $
-* $$ x = { - b \\pm \\sprt {b^2 - 4ac } \\over 2a } $$
+
+* $a^2 = b^2 + c^2$
+* $ax^2 + bx + c =0$
+* $$x = { -b \\pm \\sqrt { b^2 - 4ac } \\over 2a }$$
+
 
 ```
-$ a^2 = b^2 + c^2 $
+
+$a^2=b^2+c^2 $
+$ax^2 + bx + c = 0$
+$$x = { - b \\pm \\sqrt {b^2 - 4ac } \\over 2a }$$
+
 
 ```
 
