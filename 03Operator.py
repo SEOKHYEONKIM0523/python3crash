@@ -84,3 +84,25 @@ print(bool(0), bool(''))
 print(bool(1), bool('abc'))
 print(0 and 'abc', 1 and 'abc' )
 print('' or 'abc', '' and 'abc' )
+
+#문자열 서식화 (formatting) 하기
+#문자열에서 특정 부분만 바뀌고 나머지는 변화가 없는 경우
+#문자열 서식화를 이용하면 편리하게 적용 가능
+
+print('이름 : 홍길동, 나이 : 25')
+
+name , age = '홍길동', 25
+print('이름 : ',name , ', 나이 : ', age)
+
+# % 서식 - 서식 문자열 사용
+print('이름 : %s, 나이 : %d' % (name, age))
+dan = 7
+
+print('%d X 2 = %d' %(dan,dan*2))
+# .format
+print('이름 : {}, 나이 : {}'.format(name, age))
+print('{} X 2 = {}'.format(dan,dan * 2))
+
+# f-string
+print(f'이름 : {name}, 나이 : {age}')
+print(f'{dan} X 2 = {dan*2}')
