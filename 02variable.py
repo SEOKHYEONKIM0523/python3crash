@@ -98,23 +98,40 @@ print(str4)
 bool1 = True
 bool2 = False
 bool3 = 0
-bool4 = 0
-bool5 = True
-bool6 = False
+
 
 print(bool1, bool2)
-print(bool(bool3)), bool(bool4))
-print(bool(bool5)), bool(bool6))
 
 # 유효숫자e지수 표현법으로 되어 있는 다음 숫자를 보통의 소숫점 표현으로 나타내라.
 # 5e8
+5.0 x 100000000
 # 5.6e3
+5.6 x 1000
 # -2.1e2
+-2.1 x 100
 # -3.4e-1
-
-
+-3.4 x 0.1
 # 다음 숫자를 유효숫자e지수 표현법으로 나타내라. 유효숫자는 정수가 되어야 한다.
 # 3.141592
+314e4
+a=3141592e-7
+a=float(3141592e-6)
+print(a)
+
 # 2.718
+2718e-3
+a=float(2718e-3)
+print(a)
 # 1.4
+14e-1
 # 1.73
+173e-2
+
+fruit = 'apple22'
+print (fruit)
+
+first_name = 'ada'
+last_name = 'lovelace'
+full_name = f"{first_name} {last_name}"
+print(full_name)
+print(f"Hello,{full_name}")
