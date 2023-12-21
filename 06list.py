@@ -83,3 +83,63 @@ print(sjs[0])
 print(sjs[1])
 print(sjs[2])
 
+# 참석자 명단 선언
+attendList = ['이순철','김병헌','김민우','박찬호','김민태']
+
+# 참석자 수 확인 : len
+len(attendList)
+
+# 문자열에 len 사용 시 문자열의 길이 출력
+str = 'Hello, World!!'
+print(len(str))
+
+# 사용자로부터 데이터 입력받기 : input
+name = input('이름을 입력하세요 : ')
+
+# 사용자에게 정수 2개 입력 받아 더한 후 출력
+# input 으로 입력받은 내용은 무조건 문자로 처리됨
+# 만약 숫자를 입력받길 원한다면 적절한 변환이 필요
+num1 = int(input('첫 번째 정수는?: '))
+num2 = int(input('두 번째 정수는?: '))
+print(num1, num2 , num1 + num2)
+
+#이름,나이 출력 프로그램
+userName = ''
+userAge = ''
+userName = input('이름을 입력하세요.')
+print('사용자 이름')
+print(userName)
+userAge = int(input('나이를 입력하세요'))
+print('사용자 나이')
+print(userAge)
+
+#날씨 예보 프로그램
+
+day = input('요일을 입력하세요')
+date = input('날짜를 입력하세요.')
+lowtem = int(input('아침 최저 기온을 입력하세요'))
+hightem = int(input('낮 최고 기온을 입력하세요.'))
+rain = int(input('비올 확률을 입력하세요'))
+dust = input('미세먼지 수치를 입력하세요.')
+sunr = input('일출 시간을 입력하세요')
+suns = input('일몰 시간을 입력하세요')
+nor = input('바다 높이를 알려주세요')
+eas = input('바다 높이를 알려주세요')
+wes = input('바다 높이를 알려주세요')
+
+weather = f'''
+내일 날씨 예보입니다.
+{day}요일인 {date}의 아침 최저 기온은 {lowtem}도, 낮 최고 기온은 {hightem}으로 예보됐습니다'
+비올 확률은 {rain}%이고, 미세먼지는 {dust} 수준 일 것으로 예상됩니다.'
+일출 시간은 {sunr}이고, 일몰 시간은 {suns}입니다'
+바다의 물결은 남해 앞바다 {nor}m, 동해 앞바다 {eas}m, 서해 앞바다 {wes}m 높이로 일겠습니다.
+지금까지 {date} {day}요일 날씨 예보였습니다.
+'''
+print(weather)
+
+
+# 입력한 글자 수 확인하기
+message = input('메시지를 입력해주세요.')
+print(f'메시지의 문자 길이는 {len(message)}입니다.')
+
+import this
