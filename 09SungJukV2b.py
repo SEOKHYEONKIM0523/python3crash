@@ -10,6 +10,7 @@ engs = int(input("영어 점수를 입력하세요."))
 mats = int(input("수학 점수를 입력하세요."))
 
 
+
 names = []
 kors = []
 engs = []
