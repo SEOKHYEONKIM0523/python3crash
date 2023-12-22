@@ -21,6 +21,7 @@ avgs.append(tots[1]/3)
 tots.append(kors[2] + engs[2] + mats[2])
 avgs.append(tots[2]/3)
 
+
 # 결과 출력
 print(f'이름 : {names[0]}, 국어: {kors[0]}, 영어: {engs[0]}, 수학: {mats[0]}')
 print(f'총점: {tots[0]}, 평균: {avgs[0]:.1f}')
