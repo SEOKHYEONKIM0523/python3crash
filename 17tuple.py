@@ -42,3 +42,61 @@ print(numbers[1:3])
 print(numbers[0:2])
 print(numbers[1:4])
 print(numbers[3:len(numbers)-1])
+
+
+# 난수 생성하기
+# random이라는 모듈이 필요
+# random()    : 0~1사이 임의의 부동소수점 숫자 출력
+# randint(x,y) : x~y사이 임의의 정수 출력
+# randrange(s,e,l) : 시작부터 끝 사이 임의의 출력
+import random as rnd
+rnd.seed(2312271045)
+print(rnd.random())
+print(rnd.randint(1, 10)) # 1 ~ 10 사이 난수 생성
+print(rnd.randrange(1, 10)) # 1 ~ 9 사이 난수 생성
+
+# 1 ~ 100사이의 임의의 3의 배수 출력
+print(rnd.randrange(3,100+1,3))
+
+# 1 ~ 45 사이 임의의 정수 6개를 추출해서
+# 리스트와 튜플에 저장하는 코드를 작성하세요
+import random as rnd
+rnd.seed(2312271045)
+print(rnd.random())
+rand1 = []
+rand2 = []
+for _ in range(1,6+1):
+    rand1.append(rnd.randint(1,45))
+    rand2.append(rnd.randint(1,45))
+print(rand1)
+rand2=tuple(rand2)
+print(rand2)
+
+# 1 ~ 45 사이 임의의 정수 6개를 추출해서
+# 리스트와 튜플에 저장하는 코드를 작성하세요
+# 중복된 값은 제외
+print(rnd.random())
+rand1 = []
+rand2 = []
+for _ in range(1,6+1):
+    rand1.append(rnd.randint(1,45))
+    rand2.append(rnd.randint(1,45))
+    if set in rand1 or set in rand2:
+        rand1.clear()
+        rand2.clear()
+        rand1.append(rnd.randint(1, 45))
+        rand2.append(rnd.randint(1, 45))
+print(rand1)
+rand2=tuple(rand2)
+print(rand2)
+
+lottos = []
+cnt = 0
+while len(lottos) < 6:
+    cnt += 1
+    lotto = rnd.randint(1,45)
+    if lotto not in lottos:
+        lottos.append(lotto)
+
+print(lottos,cnt)
+
