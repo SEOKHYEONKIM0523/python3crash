@@ -68,6 +68,9 @@ import operator
 
 usd = 1_299.00 * 780
 euro = 1_428.77 * 650
+if operator.gt(usd,euro):
+    cheaper = '더 싼 제품은 650유로 노트북 입니다.'
+else:
+    '더 싼 제품은 780달러 노트북 입니다.'
 
-cheaper = '더 싼 제품은 650유로 노트북 입니다.' if operator.gt(usd,euro): else '더 싼 제품은 780달러 노트북 입니다.'
 print(f'{cheaper}')
