@@ -4,7 +4,7 @@ from collections import OrderedDict
 
 # sungjuks = {'response' :{'body':{'totalCount':999, 'items': []}}}
 
-sjs = {'sungjuks':[]}
+sjs = {'response' :{'body':{'totalCount': 0, 'items': []}}}
 
 
 def show_menu(): # 메뉴 출력
@@ -42,14 +42,15 @@ def compute_sungjuk(sj): # 성적 처리
 
 def show_sungjuk(): # 성적 데이터 출력
     print('성적 데이터 조회')
-    for sj in sjs['sungjuks']:
+    for sj in sjs['response']['body']['items']:
         print(f"이름 : {sj['name']:s}, 국어: {sj['kor']}, "
               f"영어: {sj['eng']}, 수학: {sj['mat']}")
 
 
 def save_sungjuk(sj):
     # 메모리 내에 생성된 json 객체에 방금 생성한 성적데이터 저장
-    sjs['sungjuks'].append(sj)
+    sjs['response']['body']['items'].append(sj)
+    sjs['response']['body']['totalCount'] += 1
     # 메모리 내에 생성된 json 객체를 파일에 저장
     with open('sungjuks.json', 'w',encoding='utf8') as f:
         json.dump(sjs, f, ensure_ascii=False)
