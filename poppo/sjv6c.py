@@ -74,7 +74,16 @@ def load_sungjuk():
 
 
 def showone_sungjuk():
-    pass
+    name = input('상세 조회할 학생 이름은? ')
+    info = '찾는 데이터가 없습니다'
+
+    for sj in sjs['response']['body']['items']:
+        if sj['name'] == name:
+            info = (f"{sj['name']} {sj['kor']} {sj['eng']} {sj['mat']}"
+                    f"{sj['tot']} {sj['avg']} {sj['grd']}")
+            break
+
+    print(info)
 
 
 def modify_sungjuk():
