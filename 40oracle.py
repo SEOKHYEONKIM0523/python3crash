@@ -18,20 +18,33 @@
 # For Instant Client 21 install VS 2019 or later.
 # For Instant Client 19 install VS 2017.
 # https://www.oracle.com/kr/database/technologies/instant-client/winx64-64-downloads.html
+# cx-oracle.readthedocs.io/en/latest/user_guide/installation.html
 
 # intelliJ에서 csv 파일 가져올 시
 # 텍스트 컬럼은 자동으로 CLOB 타입으로 설정
 # CLOB가 꼭 필요한 컬럼을 제외하고 varchar 타입으로 바꿀 것을 추천
+
+# 2024-01-08 기준
+# cx_Oracle 모듈이 oracledb로 업그레이드 됨
+# pip install oracledb
+
+
+
+
 import cx_Oracle
 
-host ='
+import oracledb
+
+host =''
 userid = ''
 passwd = ''
 sid = 'FREE'
 
 # DB 서버에 연결
-dsn_tns = cx_Oracle.makedsn(host,1521,sid)
-conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+#dsn_tns = cx_Oracle.makedsn(host,1521,sid)
+#conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+dsn_tns = oracledb.makedsn(host,1521,sid)
+conn = oracledb.connect(user=userid, password=passwd, dsn=dsn_tns)
 
 cursor = conn.cursor()
 
@@ -46,16 +59,12 @@ conn.close()
 
 # 국가별 메달별 획득 수 조회
 
-import cx_Oracle
-
-host ='43.202.43.143'
-userid = 'bigdata'
-passwd = ''
-sid = 'FREE'
-
 # DB 서버에 연결
-dsn_tns = cx_Oracle.makedsn(host,1521,sid)
-conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+
+# dsn_tns = cx_Oracle.makedsn(host,1521,sid)
+# conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+dsn_tns = oracledb.makedsn(host,1521,sid)
+conn = oracledb.connect(user=userid, password=passwd, dsn=dsn_tns)
 
 cursor = conn.cursor()
 
@@ -71,8 +80,11 @@ cursor.close()
 conn.close()
 
 # 승선위치별(embarked) 성별(sex) 생존자 수(survived) 조회
-dsn_tns = cx_Oracle.makedsn(host,1521,sid)
-conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+# dsn_tns = cx_Oracle.makedsn(host,1521,sid)
+# conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+
+dsn_tns = oracledb.makedsn(host,1521,sid)
+conn = oracledb.connect(user=userid, password=passwd, dsn=dsn_tns)
 
 cursor = conn.cursor()
 
@@ -88,8 +100,11 @@ cursor.close()
 conn.close()
 
 # 승선위치별(embarked) 사람(who) 생존자 수(survived) 조회
-dsn_tns = cx_Oracle.makedsn(host,1521,sid)
-conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+# dsn_tns = cx_Oracle.makedsn(host,1521,sid)
+# conn = cx_Oracle.connect(userid, passwd, dsn_tns)
+
+dsn_tns = oracledb.makedsn(host,1521,sid)
+conn = oracledb.connect(user=userid, password=passwd, dsn=dsn_tns)
 
 cursor = conn.cursor()
 
