@@ -2,7 +2,6 @@ import sys
 from poppo.Book import Book
 from poppo.BookDAO import BookDAO
 
-
 # 메뉴 출력
 def show_menu():
     """
@@ -28,16 +27,21 @@ def show_menu():
     return menu
 
 
-# 도서 처리 (총점/평균/학점 계산)
-def compute_book():
-    """
 
-    도서 데이터를 이용해 총점과 평균 학점을 구하는 함수
-    :param : 기존에 저장된 도서 데이터
-    :return: 도서처리된 도서데이터
-    """
-    pass
+def input_book():
+    print('도서 데이터 추가')
+    bkname = input('도서명은?')
+    author = input('저자는?')
+    publisher = input('출판사는?')
+    pubdate = input('출간일은?')
+    retail = int(input('정가는?'))
+    pctoff = int(input('할인율은?'))
 
+    bk = Book(bkname,author,publisher,pubdate,retail,pctoff)
+    bk.price = bk.retail * (1 - (bk.pctoff/100))
+    bk.mileage = bk.retail * (bk.pctoff/100)
+
+    return bk
 
 # 도서 데이터 추가 (입력-처리-저장)
 def new_book():
@@ -46,7 +50,13 @@ def new_book():
     :param: 없음
     :return: 없음
     """
-    pass
+    bk = input_book()
+    print(bk)
+
+    rowcnt = BookDAO.insert_book(bk)
+    print(f'{rowcnt} 건의 도서 데이터 등록됨!')
+
+
 # 모든 도서 데이터 출력
 def read_book():
     """
@@ -55,6 +65,7 @@ def read_book():
     :return: 없음
     """
     pass
+
 
 # 도서 데이터 상세 조회
 def readone_book():
@@ -66,6 +77,7 @@ def readone_book():
     bkname = input('상세 조회할 도서명은?')
     pass
 
+
 # 도서 데이터 수정
 def modify_book():
     """
@@ -76,6 +88,7 @@ def modify_book():
     bkno = input('수정할 도서번호는?')
     pass
 
+
 # 도서 데이터 삭제
 def remove_book():
     """
@@ -85,6 +98,8 @@ def remove_book():
     """
     bkno = input('삭제할 도서 번호는?')
     pass
+
+
 # 도서 처리 프로그램 종료
 def exit_program():
     """
@@ -95,3 +110,5 @@ def exit_program():
     """
     print('프로그램 종료!')
     sys.exit(0)
+
+
