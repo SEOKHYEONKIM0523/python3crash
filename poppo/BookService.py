@@ -1,3 +1,4 @@
+import os
 import sys
 from poppo.Book import Book
 from poppo.BookDAO import BookDAO
@@ -37,19 +38,26 @@ class BookService:
 
     @staticmethod
     def __input_book():
-        print('도서 데이터 추가')
-        bkname = input('도서명은?')
-        author = input('저자는?')
-        publisher = input('출판사는?')
-        pubdate = input('출간일은?')
-        retail = int(input('정가는?'))
-        pctoff = int(input('할인율은?'))
+        try:
+            bkname = input('도서명은?')
+            author = input('저자는?')
+            publisher = input('출판사는?')
+            pubdate = input('출간일은?')
+            retail = int(input('정가는?'))
+            pctoff = int(input('할인율은?'))
 
-        bk = Book(bkname,author,publisher,pubdate,retail,pctoff)
-        bk.price = bk.retail * (1 - (bk.pctoff/100))
-        bk.mileage = bk.retail * (bk.pctoff/100)
+            bk = Book(bkname,author,publisher,pubdate,retail,pctoff)
+            bk.price = bk.retail * (1 - (bk.pctoff/100))
+            bk.mileage = bk.retail * (bk.pctoff/100)
 
-        return bk
+            return bk
+        except:
+            print('BookService - input_book에서 오류 발생 ')
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print('예외 내용 : ', exc_obj)
+            print('예외 종류 : ', exc_type.__name__)
+            print('예외 위치 : ', fname, exc_tb.tb_lineno)
 
     # 도서 데이터 추가 (입력-처리-저장)
     @staticmethod
@@ -60,11 +68,18 @@ class BookService:
         :return: 없음
         """
         print('도서 데이터 추가')
-        bk = BookService.__input_book()
+        try:
+            bk = BookService.__input_book()
 
-        rowcnt = BookDAO.insert_book(bk)
-        print(f'{rowcnt} 건의 도서 데이터 등록됨!')
-
+            rowcnt = BookDAO.insert_book(bk)
+            print(f'{rowcnt} 건의 도서 데이터 등록됨!')
+        except:
+            print('BookService - new_book에서 오류 발생 ')
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print('예외 내용 : ', exc_obj)
+            print('예외 종류 : ', exc_type.__name__)
+            print('예외 위치 : ', fname, exc_tb.tb_lineno)
 
     # 모든 도서 데이터 출력
     @staticmethod
