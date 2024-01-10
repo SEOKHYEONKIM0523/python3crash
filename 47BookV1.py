@@ -4,8 +4,9 @@
 # retail, price, pctoff, mileage 
 # 성적 데이터는 데이터베이스 테이블에 저장
 # 클래스 기반으로 재작성
-import poppo.BookService as bksrv
-
+from poppo.BookService import BookService as bksrv
+# BookService를 클래스로 변경했기 때문에
+# from ~ import 구문으로 바꿔 객체 사용
 
 while True:
     # 프로그램 주 실행부
