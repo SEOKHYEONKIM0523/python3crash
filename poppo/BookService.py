@@ -83,7 +83,25 @@ def readone_book():
         print(f'{row[0]} {row[1]} {row[2]} {row[3]} {row[4]}'
               f'{row[5]:,} {row[6]:,} {row[7]}% {row[8]:,} {row[9]}')
     else:
-        print('데이터가 없어요')
+        print('조회할 데이터가 없어요')
+
+
+def reinput_book(obk):
+
+    bkname = input(f'도서명은? ({obk[1]})')
+    author = input(f'저자는? ({obk[2]})')
+    publisher = input(f'출판사는? ({obk[3]})')
+    pubdate = input(f'출간일은? ({obk[4]})')
+    retail = int(input(f'정가는? ({obk[5]})'))
+    pctoff = int(input(f'할인율은? ({obk[7]})'))
+
+    bk = Book(bkname,author,publisher,pubdate,retail,pctoff)
+    bk.price = bk.retail * (1 - (bk.pctoff/100))
+    bk.mileage = bk.retail * (bk.pctoff/100)
+    bk.bkno = obk[0]
+
+    return bk
+
 
 
 # 도서 데이터 수정
@@ -93,9 +111,16 @@ def modify_book():
     :param: 없음
     :return: 없음
     """
-    bkno = input('수정할 도서번호는?')
-    pass
+    bkname = input('수정할 도서이름는?')
 
+    row = BookDAO.selectone_book(bkname)
+    if row:
+        bk = reinput_book(row)
+        rowcnt = BookDAO.update_book(bk)
+        print(f'{rowcnt} 건의 데이터가 수정됨')
+
+    else:
+        print('수정할 데이터가 없어요')
 
 # 도서 데이터 삭제
 def remove_book():
