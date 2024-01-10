@@ -77,7 +77,13 @@ def readone_book():
     :return: 없음
     """
     bkname = input('상세 조회할 도서명은?')
-    pass
+
+    row = BookDAO.selectone_book(bkname)
+    if row:
+        print(f'{row[0]} {row[1]} {row[2]} {row[3]} {row[4]}'
+              f'{row[5]:,} {row[6]:,} {row[7]}% {row[8]:,} {row[9]}')
+    else:
+        print('데이터가 없어요')
 
 
 # 도서 데이터 수정
@@ -99,7 +105,9 @@ def remove_book():
     :return: 없음
     """
     bkno = input('삭제할 도서 번호는?')
-    pass
+    rowcnt = BookDAO.delete_book(bkno)
+    print(f'{rowcnt} 건의 도서 데이터 삭제됨!')
+
 
 
 # 도서 처리 프로그램 종료
