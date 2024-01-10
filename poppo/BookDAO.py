@@ -28,9 +28,14 @@ class BookDAO:
 
     @staticmethod
     def select_book():
-        pass
+        cursor, conn = dbinfo.openConn()
 
+        cursor.execute(selectsql)
+        rows = cursor.fetchall()
 
+        dbinfo.closeConn(cursor,conn)
+
+        return rows
     @staticmethod
     def selectone_book():
         pass

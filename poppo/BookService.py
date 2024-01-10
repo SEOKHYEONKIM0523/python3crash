@@ -51,8 +51,6 @@ def new_book():
     :return: 없음
     """
     bk = input_book()
-    print(bk)
-
     rowcnt = BookDAO.insert_book(bk)
     print(f'{rowcnt} 건의 도서 데이터 등록됨!')
 
@@ -64,7 +62,11 @@ def read_book():
     :param: 없음
     :return: 없음
     """
-    pass
+    rows = BookDAO.select_book()
+    result = ''
+    for row in rows:
+        result += f'{row[0]} {row[1]} {row[2]} {row[3]} {row[4]:,}\n'
+    print(result)
 
 
 # 도서 데이터 상세 조회
